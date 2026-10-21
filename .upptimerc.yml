@@ -1,0 +1,100 @@
+# Página de status pública da Yoodash (Upptime).
+# Repositório PÚBLICO no GitHub da p4c-group; a página sai em https://status.yoodash.com.br
+owner: p4c-group
+repo: status-yoodash
+
+# Verificações a cada 5 minutos (o mínimo do GitHub Actions).
+# "Lento" (degraded) acima de 5 s; "fora do ar" quando não responde ou responde com erro.
+sites:
+  - name: Aplicativo
+    url: https://app.yoodash.com.br/auth/sign-in
+    maxResponseTime: 5000
+
+  - name: API
+    url: https://api.yoodash.com.br/health
+    maxResponseTime: 5000
+    # Só conta como "no ar" se a resposta trouxer o status ok.
+    __dangerous__body_down_if_text_missing: '"status":"ok"'
+
+  - name: Formulários e feeds
+    url: https://public.yoodash.com.br
+    maxResponseTime: 5000
+    # A raiz deste domínio responde 404 (ele só serve endereços de formulários e feeds);
+    # 404 aqui significa que o servidor está de pé.
+    expectedStatusCodes:
+      - 200
+      - 404
+
+status-website:
+  cname: status.yoodash.com.br
+  name: Yoodash · Status
+  introTitle: Status da Yoodash
+  introMessage: Acompanhe aqui se o aplicativo e a API da Yoodash estão funcionando. A página é atualizada a cada 5 minutos.
+  navbar:
+    - title: Status
+      href: /
+    - title: Acessar a Yoodash
+      href: https://app.yoodash.com.br
+
+i18n:
+  activeIncidents: Incidentes em andamento
+  allSystemsOperational: Todos os sistemas estão operacionais
+  incidentReport: "Relatório do incidente #$NUMBER →"
+  activeIncidentSummary: Aberto em $DATE, com $POSTS atualizações
+  incidentTitle: Detalhes do incidente $NUMBER
+  incidentDetails: Detalhes do incidente
+  incidentFixed: Resolvido
+  incidentOngoing: Em andamento
+  incidentOpenedAt: Aberto em
+  incidentClosedAt: Encerrado em
+  incidentViewOnGitHub: Ver no GitHub
+  incidentCommentSummary: Publicado em $DATE por $AUTHOR
+  incidentBack: ← Voltar para todos os incidentes
+  pastIncidents: Incidentes anteriores
+  pastIncidentsResolved: Resolvido em $MINUTES minutos, com $POSTS atualizações
+  liveStatus: Status agora
+  overallUptime: "Disponibilidade geral: $UPTIME"
+  overallUptimeTitle: Disponibilidade geral
+  averageResponseTime: "Tempo médio de resposta: $TIMEms"
+  averageResponseTimeTitle: Tempo médio de resposta
+  sevelDayResponseTime: Tempo de resposta em 7 dias
+  responseTimeMs: Tempo de resposta (ms)
+  up: Operacional
+  down: Fora do ar
+  degraded: Lento
+  ms: ms
+  loading: Carregando
+  navGitHub: GitHub
+  footer: Página de status da Yoodash, gerada com [Upptime](https://upptime.js.org)
+  rateLimitExceededTitle: Limite de acessos atingido
+  rateLimitExceededIntro: Você atingiu o número de acessos permitidos por hora. Aguarde um pouco antes de abrir a página de novo ou adicione um token pessoal do GitHub para continuar.
+  rateLimitExceededWhatDoesErrorMean: O que significa este erro?
+  rateLimitExceededErrorMeaning: Esta página usa a API do GitHub para mostrar o status em tempo real. O GitHub permite 60 acessos por hora a cada endereço IP, e esse limite foi atingido.
+  rateLimitExceededErrorHowCanFix: Como resolver?
+  rateLimitExceededErrorFix: Aguarde uma hora para o limite ser restaurado ou adicione um token pessoal do GitHub, que libera mais 5.000 acessos por hora.
+  rateLimitExceededGeneratePAT: Saiba como gerar um token pessoal
+  rateLimitExceededHasSet: Você já tem um token pessoal configurado.
+  rateLimitExceededRemoveToken: Remover token
+  rateLimitExceededGitHubPAT: Token pessoal do GitHub
+  rateLimitExceededCopyPastePAT: Copie e cole o seu token
+  rateLimitExceededSaveToken: Salvar token
+  errorTitle: Ocorreu um erro
+  errorIntro: Não foi possível carregar o status mais recente.
+  errorText: Tente de novo em alguns instantes.
+  errorHome: Ir para a página inicial
+  pastScheduledMaintenance: Manutenções anteriores
+  scheduledMaintenance: Manutenção programada
+  scheduledMaintenanceSummaryStarted: Começou em $DATE, com duração de $DURATION minutos
+  scheduledMaintenanceSummaryStarts: Começa em $DATE, com duração de $DURATION minutos
+  startedAt: Começou em
+  startsAt: Começa em
+  duration: Duração
+  durationMin: $DURATION minutos
+  incidentCompleted: Concluída
+  incidentScheduled: Programada
+  duration24H: 24h
+  duration7D: 7d
+  duration30D: 30d
+  duration1Y: 1a
+  durationAll: tudo
+  locale: pt-BR
