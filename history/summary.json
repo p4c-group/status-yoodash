@@ -59,19 +59,17 @@
     "icon": "https://status.yoodash.com.br/favicon.ico",
     "slug": "sincronizacao-de-dados",
     "status": "up",
-    "uptime": "2.77%",
-    "uptimeDay": "2.77%",
-    "uptimeWeek": "2.77%",
-    "uptimeMonth": "2.77%",
-    "uptimeYear": "2.77%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 261,
     "timeDay": 261,
     "timeWeek": 261,
     "timeMonth": 261,
     "timeYear": 261,
-    "dailyMinutesDown": {
-      "2026-10-22": 34
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Plataformas de e-commerce",
@@ -79,19 +77,17 @@
     "icon": "https://status.yoodash.com.br/logos/vtex.svg",
     "slug": "plataformas-de-e-commerce",
     "status": "up",
-    "uptime": "2.65%",
-    "uptimeDay": "2.65%",
-    "uptimeWeek": "2.65%",
-    "uptimeMonth": "2.65%",
-    "uptimeYear": "2.65%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 109,
     "timeDay": 109,
     "timeWeek": 109,
     "timeMonth": 109,
     "timeYear": 109,
-    "dailyMinutesDown": {
-      "2026-10-22": 34
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Mercado Livre",
@@ -99,19 +95,17 @@
     "icon": "https://status.yoodash.com.br/logos/mercado-livre.svg",
     "slug": "mercado-livre",
     "status": "up",
-    "uptime": "2.52%",
-    "uptimeDay": "2.52%",
-    "uptimeWeek": "2.52%",
-    "uptimeMonth": "2.52%",
-    "uptimeYear": "2.52%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 115,
     "timeDay": 115,
     "timeWeek": 115,
     "timeMonth": 115,
     "timeYear": 115,
-    "dailyMinutesDown": {
-      "2026-10-22": 34
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Shopee",
@@ -119,19 +113,17 @@
     "icon": "https://status.yoodash.com.br/logos/shopee.png",
     "slug": "shopee",
     "status": "up",
-    "uptime": "2.38%",
-    "uptimeDay": "2.38%",
-    "uptimeWeek": "2.38%",
-    "uptimeMonth": "2.38%",
-    "uptimeYear": "2.38%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 124,
     "timeDay": 124,
     "timeWeek": 124,
     "timeMonth": 124,
     "timeYear": 124,
-    "dailyMinutesDown": {
-      "2026-10-22": 34
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Anymarket",
@@ -139,19 +131,17 @@
     "icon": "https://status.yoodash.com.br/logos/anymarket.svg",
     "slug": "anymarket",
     "status": "up",
-    "uptime": "2.25%",
-    "uptimeDay": "2.25%",
-    "uptimeWeek": "2.25%",
-    "uptimeMonth": "2.25%",
-    "uptimeYear": "2.25%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 113,
     "timeDay": 113,
     "timeWeek": 113,
     "timeMonth": 113,
     "timeYear": 113,
-    "dailyMinutesDown": {
-      "2026-10-22": 33
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Google Ads",
@@ -159,19 +149,17 @@
     "icon": "https://status.yoodash.com.br/logos/google-ads.svg",
     "slug": "google-ads",
     "status": "up",
-    "uptime": "2.12%",
-    "uptimeDay": "2.12%",
-    "uptimeWeek": "2.12%",
-    "uptimeMonth": "2.12%",
-    "uptimeYear": "2.12%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 106,
     "timeDay": 106,
     "timeWeek": 106,
     "timeMonth": 106,
     "timeYear": 106,
-    "dailyMinutesDown": {
-      "2026-10-22": 33
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Meta Ads",
@@ -179,19 +167,17 @@
     "icon": "https://status.yoodash.com.br/logos/meta-ads.svg",
     "slug": "meta-ads",
     "status": "up",
-    "uptime": "1.95%",
-    "uptimeDay": "1.95%",
-    "uptimeWeek": "1.95%",
-    "uptimeMonth": "1.95%",
-    "uptimeYear": "1.95%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 107,
     "timeDay": 107,
     "timeWeek": 107,
     "timeMonth": 107,
     "timeYear": 107,
-    "dailyMinutesDown": {
-      "2026-10-22": 33
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "TikTok Ads",
@@ -199,19 +185,17 @@
     "icon": "https://status.yoodash.com.br/logos/tiktok-ads.svg",
     "slug": "tik-tok-ads",
     "status": "up",
-    "uptime": "1.82%",
-    "uptimeDay": "1.82%",
-    "uptimeWeek": "1.82%",
-    "uptimeMonth": "1.82%",
-    "uptimeYear": "1.82%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 108,
     "timeDay": 108,
     "timeWeek": 108,
     "timeMonth": 108,
     "timeYear": 108,
-    "dailyMinutesDown": {
-      "2026-10-22": 33
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Google Analytics 4",
@@ -219,19 +203,17 @@
     "icon": "https://status.yoodash.com.br/logos/ga4.svg",
     "slug": "google-analytics-4",
     "status": "up",
-    "uptime": "1.69%",
-    "uptimeDay": "1.69%",
-    "uptimeWeek": "1.69%",
-    "uptimeMonth": "1.69%",
-    "uptimeYear": "1.69%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 121,
     "timeDay": 121,
     "timeWeek": 121,
     "timeMonth": 121,
     "timeYear": 121,
-    "dailyMinutesDown": {
-      "2026-10-22": 33
-    }
+    "dailyMinutesDown": {}
   },
   {
     "name": "Google Search Console",
@@ -239,18 +221,16 @@
     "icon": "https://status.yoodash.com.br/logos/google-search.svg",
     "slug": "google-search-console",
     "status": "up",
-    "uptime": "1.55%",
-    "uptimeDay": "1.55%",
-    "uptimeWeek": "1.55%",
-    "uptimeMonth": "1.55%",
-    "uptimeYear": "1.55%",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
     "time": 116,
     "timeDay": 116,
     "timeWeek": 116,
     "timeMonth": 116,
     "timeYear": 116,
-    "dailyMinutesDown": {
-      "2026-10-22": 32
-    }
+    "dailyMinutesDown": {}
   }
 ]
