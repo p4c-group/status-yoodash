@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Status da Yoodash</title>
+<meta name="description" content="Veja se a Yoodash e as integrações estão funcionando agora.">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<meta name="theme-color" content="#021d43">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
+<style>
+/*
+ * Página de status pública da Yoodash.
+ * Os dados vêm do monitor deste mesmo repositório (history/summary.json e
+ * history/<slug>.yml). Nada da Yoodash é consultado daqui.
+ */
+:root {
+  /* Identidade do yoodash.com.br: azul-escuro #021d43, rosa #fb0188, Plus Jakarta Sans + Inter. */
+  --bg: #f4f6fa;
+  --surface: #ffffff;
+  --ink: #021d43;
+  --muted: #4d5e78;
+  --line: #e1e6ef;
+  --brand: #fb0188;
+  --ok: #12804a;
+  --ok-soft: #e3f4ea;
+  --warn: #9a5800;
+  --warn-soft: #fcf0dc;
+  --down: #c41f3a;
+  --down-soft: #fde6ea;
+  --bar-ok: #2fa564;
+  --bar-warn: #e3a31b;
+  --bar-down: #d9364b;
+  --bar-none: #d5dbe5;
+  --font: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.55; }
+.page {
+  max-width: 1040px; margin: 0 auto;
+  padding-block: max(28px, env(safe-area-inset-top, 0px)) max(48px, env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 20px;
+}
+h1, h2, h3 { margin: 0; line-height: 1.2; text-wrap: balance; font-family: var(--font-display); }
+p { margin: 0; }
+a { color: var(--brand); }
+a:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+
+/* Cabeçalho */
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 14px; color: var(--ink); text-decoration: none; }
+.brand img { height: 30px; width: auto; display: block; }
+.brand h1 { font-size: 17px; font-weight: 700; padding-left: 14px; border-left: 1px solid var(--line); }
+.refresh { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; }
+.refresh strong { color: var(--ink); font-weight: 600; }
+
+/* Status geral + contagem */
+.overview { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; padding: 24px; align-items: center; }
+.headline { display: flex; align-items: center; gap: 18px; min-width: 0; }
+.badge { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; }
+.badge svg { width: 28px; height: 28px; }
+.badge.ok { background: var(--ok-soft); color: var(--ok); }
+.badge.warn { background: var(--warn-soft); color: var(--warn); }
+.badge.down { background: var(--down-soft); color: var(--down); }
+.badge.loading { background: var(--bg); color: var(--muted); }
+.headline h2 { font-size: clamp(20px, 3vw, 26px); font-weight: 800; }
+.headline p { color: var(--muted); font-size: 14px; margin-top: 4px; }
+.counts { display: flex; align-items: center; gap: 18px; padding-left: 20px; border-left: 1px solid var(--line); }
+.ring { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; }
+.ring span { width: 46px; height: 46px; border-radius: 50%; background: var(--surface); display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 18px; }
+.counts dl { margin: 0; display: grid; grid-template-columns: auto auto; gap: 2px 14px; font-size: 14px; }
+.counts dt { color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.counts dt i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.counts dd { margin: 0; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Tempo de atividade */
+.section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding: 20px 24px 6px; }
+.section-head h2 { font-size: 18px; font-weight: 700; }
+.section-head span { font-size: 13px; color: var(--muted); }
+.group { padding: 10px 24px 4px; }
+/* Linha de ponta a ponta entre grupos, mais marcada que a linha entre serviços. */
+.group + .group { border-top: 2px solid var(--line); margin-top: 8px; padding-top: 18px; }
+.group h3 { font-family: var(--font-display); font-size: 12px; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink); padding-bottom: 4px; text-decoration: underline; text-decoration-color: var(--brand); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.monitor { padding: 14px 0; display: grid; gap: 10px; border-top: 1px solid var(--line); }
+.group h3 + .monitor { border-top: 0; }
+.monitor-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.monitor-name { display: flex; align-items: center; gap: 10px; font-weight: 700; min-width: 0; }
+.monitor-name .monitor-hint { font-weight: 400; }
+.logos { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.logos img { width: 22px; height: 22px; object-fit: contain; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); padding: 2px; }
+.monitor-hint { color: var(--muted); font-size: 13px; font-weight: 400; }
+.monitor-side { display: flex; align-items: center; gap: 14px; font-size: 14px; }
+.pct { font-weight: 600; font-variant-numeric: tabular-nums; }
+.state { font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; }
+.state::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.state.up { color: var(--ok); background: var(--ok-soft); }
+.state.degraded { color: var(--warn); background: var(--warn-soft); }
+.state.down { color: var(--down); background: var(--down-soft); }
+.bars { display: grid; grid-template-columns: repeat(90, minmax(0, 1fr)); gap: 2px; height: 30px; }
+.bars span { display: block; border-radius: 2px; background: var(--bar-ok); }
+.bars span.w { background: var(--bar-warn); } .bars span.d { background: var(--bar-down); } .bars span.n { background: var(--bar-none); }
+.bars span:hover { filter: brightness(0.85); }
+.axis { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
+.uptime-foot { padding: 6px 24px 18px; }
+
+/* Tempo de atividade geral */
+.totals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.total { padding: 18px 24px; display: grid; gap: 2px; border-left: 1px solid var(--line); }
+.total:first-child { border-left: 0; }
+.total strong { font-family: var(--font-display); font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.total span { font-size: 13px; color: var(--muted); }
+
+/* Dica ao passar o mouse num dia */
+.tip { position: fixed; z-index: 10; pointer-events: none; background: var(--ink); color: #ffffff; font-size: 13px; padding: 6px 10px; border-radius: 8px; white-space: nowrap; transform: translate(-50%, calc(-100% - 10px)); }
+.tip strong { font-weight: 600; }
+
+footer { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
+.swatches { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.swatches span { display: inline-flex; align-items: center; gap: 6px; }
+.swatches i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; }
+.links a { color: var(--muted); text-decoration: none; }
+.links a:hover { color: var(--brand); text-decoration: underline; }
+
+@media (max-width: 760px) {
+  .overview { grid-template-columns: 1fr; }
+  .counts { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 16px; }
+  .totals { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .total:nth-child(3) { border-left: 0; }
+  .total:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .refresh { text-align: left; }
+}
+@media (max-width: 520px) {
+  .bars { grid-template-columns: repeat(45, minmax(0, 1fr)); }
+  .bars span:nth-child(-n+45) { display: none; }
+  .section-head, .group, .uptime-foot, .overview { padding-left: 16px; padding-right: 16px; }
+  .total { padding: 14px 16px; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="top">
+    <a class="brand" href="https://yoodash.com.br">
+      <img src="logo-yoodash.png" alt="Yoodash" width="129" height="30">
+      <h1>Status do serviço</h1>
+    </a>
+    <p class="refresh" id="refresh">Carregando…</p>
+  </header>
+
+  <section class="card overview" aria-label="Status geral">
+    <div class="headline">
+      <div class="badge loading" id="badge" aria-hidden="true"></div>
+      <div>
+        <h2 id="headline" role="status" aria-live="polite">Verificando os sistemas…</h2>
+        <p id="headline-sub">Monitoramos a Yoodash e as integrações a cada 5 minutos.</p>
+      </div>
+    </div>
+    <div class="counts" aria-label="Serviços monitorados">
+      <div class="ring" id="ring" style="background: var(--bar-none)"><span id="ring-total">–</span></div>
+      <dl>
+        <dt><i style="background: var(--bar-ok)"></i>Ativos</dt><dd id="count-up">–</dd>
+        <dt><i style="background: var(--bar-warn)"></i>Lentos</dt><dd id="count-degraded">–</dd>
+        <dt><i style="background: var(--bar-down)"></i>Inativos</dt><dd id="count-down">–</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="atividade">
+    <div class="section-head">
+      <h2 id="atividade">Tempo de atividade</h2>
+      <span>Últimos 90 dias</span>
+    </div>
+    <div id="groups"></div>
+    <div class="uptime-foot axis"><span>90 dias atrás</span><span>hoje</span></div>
+  </section>
+
+  <section class="card" aria-labelledby="geral">
+    <div class="section-head">
+      <h2 id="geral">Tempo de atividade geral</h2>
+      <span>Média de todos os serviços</span>
+    </div>
+    <div class="totals">
+      <div class="total"><strong id="t-day">–</strong><span>Últimas 24 horas</span></div>
+      <div class="total"><strong id="t-week">–</strong><span>Últimos 7 dias</span></div>
+      <div class="total"><strong id="t-month">–</strong><span>Últimos 30 dias</span></div>
+      <div class="total"><strong id="t-90">–</strong><span>Últimos 90 dias</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="swatches" aria-label="Legenda das barras">
+      <span><i style="background: var(--bar-ok)"></i>No ar</span>
+      <span><i style="background: var(--bar-warn)"></i>Instabilidade de até 30 min</span>
+      <span><i style="background: var(--bar-down)"></i>Fora do ar por mais de 30 min</span>
+    </div>
+    <nav class="links" aria-label="Links">
+      <span>Horários de Brasília</span>
+      <a href="https://app.yoodash.com.br">Acessar a Yoodash</a>
+      <a href="https://www.yoodash.com.br/politica-de-privacidade">Política de privacidade</a>
+      <a href="https://www.yoodash.com.br/termos-de-uso">Termos de uso</a>
+    </nav>
+  </footer>
+</main>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+(function () {
+  var OWNER = 'p4c-group';
+  var REPO = 'status-yoodash';
+  var BRANCH = 'main';
+  var DAYS = 90;
+  var REFRESH_S = 5 * 60;
+
+  // Em localhost (pré-visualização), os dados vêm do servidor local que imita o GitHub.
+  var local = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  var RAW = local ? location.origin + '/' + OWNER + '/' + REPO + '/' + BRANCH : 'https://raw.githubusercontent.com/' + OWNER + '/' + REPO + '/' + BRANCH;
+
+  /*
+   * Como cada serviço aparece na página (a chave é o slug do monitor).
+   * Serviço sem entrada aqui entra em "Outros serviços", sem logo.
+   */
+  var SERVICOS = {
+    'aplicativo': { grupo: 'plataforma', dica: 'acesso e painéis', logos: ['yoodash.svg'] },
+    'api': { grupo: 'plataforma', dica: 'dados dos painéis', logos: ['yoodash.svg'] },
+    'formularios-e-feeds': { grupo: 'plataforma', dica: 'links públicos', logos: ['yoodash.svg'] },
+    'sincronizacao-de-dados': { grupo: 'plataforma', dica: 'atualização das integrações', logos: ['yoodash.svg'] },
+    'plataformas-de-e-commerce': { grupo: 'ecommerce', dica: 'VTEX, Shopify, Nuvemshop, Tray, Wake, Jet e Olist', logos: ['vtex.svg', 'shopify.svg', 'nuvemshop.svg', 'tray.svg', 'wake.svg', 'jet.svg', 'olist.svg'] },
+    'mercado-livre': { grupo: 'marketplaces', logos: ['mercado-livre.svg'] },
+    'shopee': { grupo: 'marketplaces', logos: ['shopee.png'] },
+    'anymarket': { grupo: 'marketplaces', logos: ['anymarket.svg'] },
+    'google-ads': { grupo: 'ads', logos: ['google-ads.svg'] },
+    'meta-ads': { grupo: 'ads', logos: ['meta-ads.svg'] },
+    'tiktok-ads': { grupo: 'ads', logos: ['tiktok-ads.svg'] },
+    'google-analytics-4': { grupo: 'analise', logos: ['ga4.svg'] },
+    'google-search-console': { grupo: 'analise', logos: ['google-search.svg'] }
+  };
+  // Ordem dos serviços na página: a da lista acima (o que não estiver nela vai para o fim do grupo).
+  var ORDEM = Object.keys(SERVICOS);
+  var GRUPOS = [
+    { id: 'plataforma', titulo: 'Plataforma Yoodash' },
+    { id: 'ecommerce', titulo: 'Plataformas de e-commerce' },
+    { id: 'marketplaces', titulo: 'Plataformas de marketplace' },
+    { id: 'ads', titulo: 'Plataformas de mídia paga' },
+    { id: 'analise', titulo: 'Plataformas de análise' },
+    { id: 'outros', titulo: 'Outros serviços' }
+  ];
+  var ESTADOS = { up: 'Ativo', degraded: 'Lento', down: 'Inativo' };
+
+  var TZ = 'America/Sao_Paulo';
+  var fmtHora = new Intl.DateTimeFormat('pt-BR', { timeStyle: 'short', timeZone: TZ });
+  var fmtDia = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+  var fmtDiaISO = new Intl.DateTimeFormat('en-CA', { timeZone: TZ }); // AAAA-MM-DD
+
+  var ICONES = {
+    ok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+    warn: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 7v6"/><path d="M12 17h.01"/></svg>',
+    down: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 7l10 10M17 7L7 17"/></svg>'
+  };
+
+  var proxima = REFRESH_S;
+  var ultimaVerificacao = null;
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  var pct = function (n) { return n.toFixed(2).replace('.', ',') + '%'; };
+  var lerPct = function (s) { var n = parseFloat(String(s || '').replace('%', '')); return isNaN(n) ? null : n; };
+  var diaDe = function (data) { return fmtDiaISO.format(data); };
+
+  // Sem cache do navegador: a página fica aberta (TVs) e recarrega sozinha.
+  function buscar(url, comoTexto) {
+    return fetch(url + '?t=' + Date.now()).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return comoTexto ? r.text() : r.json();
+    });
+  }
+
+  // Início do monitoramento e última verificação, do history/<slug>.yml.
+  function lerHistorico(slug) {
+    return buscar(RAW + '/history/' + slug + '.yml', true).then(function (yml) {
+      var inicio = /startTime:\s*(\S+)/.exec(yml);
+      var ultima = /lastUpdated:\s*(\S+)/.exec(yml);
+      return { inicio: inicio ? new Date(inicio[1]) : null, ultima: ultima ? new Date(ultima[1]) : null };
+    }).catch(function () { return { inicio: null, ultima: null }; });
+  }
+
+  // Os 90 dias de um serviço: % no ar por dia, a partir dos minutos fora do ar.
+  // Dia sem registro de queda (inclusive antes do início do monitoramento) conta como 100% no ar.
+  function dias(site) {
+    var minutos = site.dailyMinutesDown || {};
+    var lista = [];
+    var hoje = Date.now();
+    for (var i = DAYS - 1; i >= 0; i--) {
+      var dia = diaDe(new Date(hoje - i * 86400000));
+      var m = minutos[dia] || 0;
+      lista.push({ dia: dia, minutos: m, noAr: Math.max(0, 100 - (m / 1440) * 100) });
+    }
+    return lista;
+  }
+
+  function renderResumo(sites) {
+    var conta = { up: 0, degraded: 0, down: 0 };
+    sites.forEach(function (s) { conta[s.status] = (conta[s.status] || 0) + 1; });
+    var total = sites.length;
+    var nomes = function (st) { return sites.filter(function (s) { return s.status === st; }).map(function (s) { return s.name; }).join(', '); };
+
+    var badge = document.getElementById('badge');
+    var titulo = document.getElementById('headline');
+    var sub = document.getElementById('headline-sub');
+    if (conta.down) {
+      badge.className = 'badge down'; badge.innerHTML = ICONES.down;
+      titulo.textContent = conta.down === 1 ? 'Um serviço está inativo' : conta.down + ' serviços estão inativos';
+      sub.textContent = nomes('down') + '. Já estamos verificando.';
+    } else if (conta.degraded) {
+      badge.className = 'badge warn'; badge.innerHTML = ICONES.warn;
+      titulo.textContent = conta.degraded === 1 ? 'Um serviço está lento' : conta.degraded + ' serviços estão lentos';
+      sub.textContent = nomes('degraded') + '.';
+    } else {
+      badge.className = 'badge ok'; badge.innerHTML = ICONES.ok;
+      titulo.textContent = 'Todos os sistemas estão operacionais';
+      sub.textContent = 'A Yoodash e as integrações estão funcionando normalmente.';
+    }
+
+    document.getElementById('ring-total').textContent = total;
+    document.getElementById('count-up').textContent = conta.up;
+    document.getElementById('count-degraded').textContent = conta.degraded;
+    document.getElementById('count-down').textContent = conta.down;
+    var a = total ? (conta.up / total) * 360 : 0, b = total ? a + (conta.degraded / total) * 360 : 0;
+    document.getElementById('ring').style.background = total
+      ? 'conic-gradient(var(--bar-ok) 0 ' + a + 'deg, var(--bar-warn) ' + a + 'deg ' + b + 'deg, var(--bar-down) ' + b + 'deg 360deg)'
+      : 'var(--bar-none)';
+  }
+
+  function renderServicos(sites, historicos) {
+    var alvo = document.getElementById('groups');
+    alvo.textContent = '';
+    var noAr90 = [];
+    GRUPOS.forEach(function (grupo) {
+      var posicao = function (slug) { var i = ORDEM.indexOf(slug); return i < 0 ? ORDEM.length : i; };
+      var doGrupo = sites.map(function (s, i) { return { site: s, h: historicos[i] }; }).filter(function (x) {
+        return ((SERVICOS[x.site.slug] || {}).grupo || 'outros') === grupo.id;
+      }).sort(function (a, b) { return posicao(a.site.slug) - posicao(b.site.slug); });
+      if (!doGrupo.length) return;
+      var bloco = el('div', 'group');
+      bloco.appendChild(el('h3', null, grupo.titulo));
+      doGrupo.forEach(function (x) {
+        var site = x.site, cfg = SERVICOS[site.slug] || {};
+        var lista = dias(site);
+        var media = lista.reduce(function (s, d) { return s + d.noAr; }, 0) / lista.length;
+        noAr90.push(media);
+
+        var linha = el('div', 'monitor');
+        var cab = el('div', 'monitor-head');
+        var nome = el('div', 'monitor-name');
+        if (cfg.logos) {
+          var logos = el('span', 'logos');
+          cfg.logos.forEach(function (arq) {
+            var img = el('img'); img.src = 'logos/' + arq; img.alt = ''; img.width = 22; img.height = 22; img.loading = 'lazy';
+            logos.appendChild(img);
+          });
+          nome.appendChild(logos);
+        }
+        var texto = el('span', null, site.name);
+        nome.appendChild(texto);
+        if (cfg.dica) nome.appendChild(el('span', 'monitor-hint', cfg.dica));
+        var lado = el('div', 'monitor-side');
+        lado.appendChild(el('span', 'pct', pct(media)));
+        lado.appendChild(el('span', 'state ' + site.status, ESTADOS[site.status] || site.status));
+        cab.appendChild(nome);
+        cab.appendChild(lado);
+
+        var bars = el('div', 'bars');
+        bars.setAttribute('role', 'img');
+        bars.setAttribute('aria-label', site.name + ': ' + pct(media) + ' no ar nos últimos 90 dias');
+        lista.forEach(function (d) {
+          var cls = d.minutos > 30 ? 'd' : d.minutos > 0 ? 'w' : '';
+          var s = el('span', cls);
+          s.setAttribute('data-dia', d.dia);
+          s.setAttribute('data-valor', pct(d.noAr) + ' no ar');
+          bars.appendChild(s);
+        });
+        linha.appendChild(cab);
+        linha.appendChild(bars);
+        bloco.appendChild(linha);
+      });
+      alvo.appendChild(bloco);
+    });
+    return noAr90;
+  }
+
+  function renderTotais(sites, noAr90) {
+    var media = function (lista) {
+      var v = lista.filter(function (n) { return n != null; });
+      return v.length ? pct(v.reduce(function (a, b) { return a + b; }, 0) / v.length) : '–';
+    };
+    document.getElementById('t-day').textContent = media(sites.map(function (s) { return lerPct(s.uptimeDay); }));
+    document.getElementById('t-week').textContent = media(sites.map(function (s) { return lerPct(s.uptimeWeek); }));
+    document.getElementById('t-month').textContent = media(sites.map(function (s) { return lerPct(s.uptimeMonth); }));
+    document.getElementById('t-90').textContent = media(noAr90);
+  }
+
+  function renderRelogio() {
+    var m = Math.floor(proxima / 60), s = proxima % 60;
+    var alvo = document.getElementById('refresh');
+    alvo.textContent = '';
+    if (ultimaVerificacao) {
+      alvo.appendChild(document.createTextNode('Última verificação às '));
+      alvo.appendChild(el('strong', null, fmtHora.format(ultimaVerificacao)));
+      alvo.appendChild(document.createTextNode(' · '));
+    }
+    alvo.appendChild(document.createTextNode('atualiza em ' + m + ':' + String(s).padStart(2, '0')));
+  }
+
+  // Passar o mouse num dia mostra só a data e o % no ar.
+  var tip = document.getElementById('tip');
+  document.getElementById('groups').addEventListener('mouseover', function (ev) {
+    var dia = ev.target.closest('.bars span');
+    if (!dia) return;
+    tip.textContent = '';
+    tip.appendChild(el('strong', null, fmtDia.format(new Date(dia.getAttribute('data-dia') + 'T00:00:00Z'))));
+    tip.appendChild(document.createTextNode(' · ' + dia.getAttribute('data-valor')));
+    var r = dia.getBoundingClientRect();
+    var x = Math.min(Math.max(r.left + r.width / 2, 90), window.innerWidth - 90);
+    tip.style.left = x + 'px';
+    tip.style.top = r.top + 'px';
+    tip.hidden = false;
+  });
+  document.getElementById('groups').addEventListener('mouseout', function (ev) {
+    if (ev.target.closest('.bars span')) tip.hidden = true;
+  });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+
+  function carregar() {
+    buscar(RAW + '/history/summary.json').then(function (sites) {
+      renderResumo(sites);
+      return Promise.all(sites.map(function (s) { return lerHistorico(s.slug); })).then(function (historicos) {
+        var noAr90 = renderServicos(sites, historicos);
+        renderTotais(sites, noAr90);
+        var ultimas = historicos.map(function (h) { return h.ultima; }).filter(Boolean);
+        ultimaVerificacao = ultimas.length ? new Date(Math.max.apply(null, ultimas)) : null;
+        renderRelogio();
+      });
+    }).catch(function () {
+      document.getElementById('badge').className = 'badge loading';
+      document.getElementById('headline').textContent = 'Não foi possível carregar o status agora';
+      document.getElementById('headline-sub').textContent = 'A página tenta de novo em alguns minutos.';
+    });
+  }
+
+  carregar();
+  setInterval(function () {
+    proxima -= 1;
+    if (proxima <= 0) { proxima = REFRESH_S; carregar(); }
+    renderRelogio();
+  }, 1000);
+})();
+</script>
+</body>
+</html>
