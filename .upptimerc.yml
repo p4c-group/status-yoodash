@@ -39,6 +39,10 @@ sites:
       - "Authorization: Bearer $GRAFANA_TOKEN"
     __dangerous__body_down_if_regex_missing: '"value":\[\s*[0-9.eE+-]+\s*,\s*"1"\s*\]'
     maxResponseTime: 10000
+    # Falha rápida: sem isto, cada consulta espera até 60 s e tenta 9 vezes.
+    connectTimeout: 10
+    requestTimeout: 20
+    maxRetries: 2
   - name: Plataformas de e-commerce
     url: $GRAFANA_Q_ECOMMERCE
     icon: https://status.yoodash.com.br/logos/vtex.svg
@@ -46,6 +50,10 @@ sites:
       - "Authorization: Bearer $GRAFANA_TOKEN"
     __dangerous__body_down_if_regex_missing: '"value":\[\s*[0-9.eE+-]+\s*,\s*"1"\s*\]'
     maxResponseTime: 10000
+    # Falha rápida: sem isto, cada consulta espera até 60 s e tenta 9 vezes.
+    connectTimeout: 10
+    requestTimeout: 20
+    maxRetries: 2
   - name: Mercado Livre
     url: $GRAFANA_Q_MERCADO_LIVRE
     icon: https://status.yoodash.com.br/logos/mercado-livre.svg
@@ -53,6 +61,10 @@ sites:
       - "Authorization: Bearer $GRAFANA_TOKEN"
     __dangerous__body_down_if_regex_missing: '"value":\[\s*[0-9.eE+-]+\s*,\s*"1"\s*\]'
     maxResponseTime: 10000
+    # Falha rápida: sem isto, cada consulta espera até 60 s e tenta 9 vezes.
+    connectTimeout: 10
+    requestTimeout: 20
+    maxRetries: 2
   - name: Shopee
     url: $GRAFANA_Q_SHOPEE
     icon: https://status.yoodash.com.br/logos/shopee.png
@@ -60,6 +72,10 @@ sites:
       - "Authorization: Bearer $GRAFANA_TOKEN"
     __dangerous__body_down_if_regex_missing: '"value":\[\s*[0-9.eE+-]+\s*,\s*"1"\s*\]'
     maxResponseTime: 10000
+    # Falha rápida: sem isto, cada consulta espera até 60 s e tenta 9 vezes.
+    connectTimeout: 10
+    requestTimeout: 20
+    maxRetries: 2
   - name: Anymarket
     url: $GRAFANA_Q_ANYMARKET
     icon: https://status.yoodash.com.br/logos/anymarket.svg
@@ -67,6 +83,10 @@ sites:
       - "Authorization: Bearer $GRAFANA_TOKEN"
     __dangerous__body_down_if_regex_missing: '"value":\[\s*[0-9.eE+-]+\s*,\s*"1"\s*\]'
     maxResponseTime: 10000
+    # Falha rápida: sem isto, cada consulta espera até 60 s e tenta 9 vezes.
+    connectTimeout: 10
+    requestTimeout: 20
+    maxRetries: 2
   - name: Google Ads
     url: $GRAFANA_Q_GOOGLE_ADS
     icon: https://status.yoodash.com.br/logos/google-ads.svg
@@ -74,6 +94,10 @@ sites:
       - "Authorization: Bearer $GRAFANA_TOKEN"
     __dangerous__body_down_if_regex_missing: '"value":\[\s*[0-9.eE+-]+\s*,\s*"1"\s*\]'
     maxResponseTime: 10000
+    # Falha rápida: sem isto, cada consulta espera até 60 s e tenta 9 vezes.
+    connectTimeout: 10
+    requestTimeout: 20
+    maxRetries: 2
   - name: Meta Ads
     url: $GRAFANA_Q_META_ADS
     icon: https://status.yoodash.com.br/logos/meta-ads.svg
@@ -81,6 +105,10 @@ sites:
       - "Authorization: Bearer $GRAFANA_TOKEN"
     __dangerous__body_down_if_regex_missing: '"value":\[\s*[0-9.eE+-]+\s*,\s*"1"\s*\]'
     maxResponseTime: 10000
+    # Falha rápida: sem isto, cada consulta espera até 60 s e tenta 9 vezes.
+    connectTimeout: 10
+    requestTimeout: 20
+    maxRetries: 2
   - name: TikTok Ads
     url: $GRAFANA_Q_TIKTOK_ADS
     icon: https://status.yoodash.com.br/logos/tiktok-ads.svg
@@ -88,6 +116,10 @@ sites:
       - "Authorization: Bearer $GRAFANA_TOKEN"
     __dangerous__body_down_if_regex_missing: '"value":\[\s*[0-9.eE+-]+\s*,\s*"1"\s*\]'
     maxResponseTime: 10000
+    # Falha rápida: sem isto, cada consulta espera até 60 s e tenta 9 vezes.
+    connectTimeout: 10
+    requestTimeout: 20
+    maxRetries: 2
   - name: Google Analytics 4
     url: $GRAFANA_Q_GA4
     icon: https://status.yoodash.com.br/logos/ga4.svg
@@ -95,6 +127,10 @@ sites:
       - "Authorization: Bearer $GRAFANA_TOKEN"
     __dangerous__body_down_if_regex_missing: '"value":\[\s*[0-9.eE+-]+\s*,\s*"1"\s*\]'
     maxResponseTime: 10000
+    # Falha rápida: sem isto, cada consulta espera até 60 s e tenta 9 vezes.
+    connectTimeout: 10
+    requestTimeout: 20
+    maxRetries: 2
   - name: Google Search Console
     url: $GRAFANA_Q_GOOGLE_SEARCH
     icon: https://status.yoodash.com.br/logos/google-search.svg
@@ -102,6 +138,10 @@ sites:
       - "Authorization: Bearer $GRAFANA_TOKEN"
     __dangerous__body_down_if_regex_missing: '"value":\[\s*[0-9.eE+-]+\s*,\s*"1"\s*\]'
     maxResponseTime: 10000
+    # Falha rápida: sem isto, cada consulta espera até 60 s e tenta 9 vezes.
+    connectTimeout: 10
+    requestTimeout: 20
+    maxRetries: 2
 
 status-website:
   cname: status.yoodash.com.br
