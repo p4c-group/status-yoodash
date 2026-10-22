@@ -1,0 +1,11 @@
+# Teste temporário: o runner do GitHub alcança o Grafana? (será removido)
+name: Teste de alcance do Grafana
+on: workflow_dispatch
+jobs:
+  alcance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Health do Grafana (sem token)
+        run: |
+          curl -sS -m 20 -o /dev/null -w "grafana /api/health → HTTP %{http_code} em %{time_total}s (connect %{time_connect}s)\n" https://grafana.yoodash.com.br/api/health || echo "grafana: FALHOU (exit $?)"
+          curl -sS -m 20 -o /dev/null -w "api.yoodash /health → HTTP %{http_code} em %{time_total}s\n" https://api.yoodash.com.br/health || echo "api: FALHOU"
