@@ -1,7 +1,7 @@
 url: https://api.yoodash.com.br/health
-status: up
-code: 200
-responseTime: 263
-lastUpdated: 2026-10-23T21:35:56.030Z
+status: down
+code: 404
+responseTime: 113
+lastUpdated: 2026-10-23T23:58:37.880Z
 startTime: 2026-10-22T02:11:05.680Z
 generator: Upptime <https://github.com/upptime/upptime>
