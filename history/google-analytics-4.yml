@@ -1,7 +1,7 @@
 url: $GRAFANA_Q_GA4
-status: down
-code: 0
-responseTime: 0
-lastUpdated: 2026-10-27T22:48:21.073Z
+status: up
+code: 200
+responseTime: 207
+lastUpdated: 2026-10-28T01:33:00.461Z
 startTime: 2026-10-22T02:13:02.430Z
 generator: Upptime <https://github.com/upptime/upptime>
