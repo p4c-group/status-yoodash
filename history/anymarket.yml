@@ -1,7 +1,7 @@
 url: $GRAFANA_Q_ANYMARKET
-status: up
-code: 200
-responseTime: 111
-lastUpdated: 2026-11-03T20:02:54.086Z
+status: down
+code: 401
+responseTime: 453
+lastUpdated: 2026-11-04T00:34:08.265Z
 startTime: 2026-10-22T02:12:05.119Z
 generator: Upptime <https://github.com/upptime/upptime>
