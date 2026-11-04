@@ -1,7 +1,7 @@
 url: $GRAFANA_Q_GOOGLE_SEARCH
-status: up
-code: 200
-responseTime: 111
-lastUpdated: 2026-11-03T20:03:11.954Z
+status: down
+code: 401
+responseTime: 441
+lastUpdated: 2026-11-04T00:35:27.062Z
 startTime: 2026-10-22T02:13:16.953Z
 generator: Upptime <https://github.com/upptime/upptime>
