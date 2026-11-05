@@ -1,7 +1,7 @@
 url: $GRAFANA_Q_SHOPEE
-status: down
-code: 401
-responseTime: 501
-lastUpdated: 2026-11-05T02:59:36.750Z
+status: up
+code: 200
+responseTime: 433
+lastUpdated: 2026-11-05T19:46:42.460Z
 startTime: 2026-10-22T02:11:50.537Z
 generator: Upptime <https://github.com/upptime/upptime>
