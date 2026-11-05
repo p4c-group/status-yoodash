@@ -1,7 +1,7 @@
 url: $GRAFANA_Q_SINCRONIZACAO
-status: down
-code: 401
-responseTime: 488
-lastUpdated: 2026-11-05T02:58:56.163Z
+status: up
+code: 200
+responseTime: 591
+lastUpdated: 2026-11-05T19:46:29.246Z
 startTime: 2026-10-22T02:11:06.771Z
 generator: Upptime <https://github.com/upptime/upptime>
