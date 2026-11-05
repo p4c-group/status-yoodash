@@ -1,7 +1,7 @@
 url: $GRAFANA_Q_TIKTOK_ADS
-status: down
-code: 401
-responseTime: 505
-lastUpdated: 2026-11-05T03:00:31.010Z
+status: up
+code: 200
+responseTime: 432
+lastUpdated: 2026-11-05T19:46:59.482Z
 startTime: 2026-10-22T02:12:48.168Z
 generator: Upptime <https://github.com/upptime/upptime>
