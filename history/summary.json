@@ -67,11 +67,11 @@
     "icon": "https://status.yoodash.com.br/favicon.ico",
     "slug": "sincronizacao-de-dados",
     "status": "up",
-    "uptime": "86.09%",
-    "uptimeDay": "0.05%",
-    "uptimeWeek": "74.27%",
-    "uptimeMonth": "86.09%",
-    "uptimeYear": "86.09%",
+    "uptime": "98.31%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "98.31%",
+    "uptimeYear": "98.31%",
     "time": 366,
     "timeDay": 540,
     "timeWeek": 403,
@@ -80,9 +80,7 @@
     "dailyMinutesDown": {
       "2026-10-23": 184,
       "2026-10-28": 93,
-      "2026-10-27": 82,
-      "2026-11-05": 1187,
-      "2026-11-04": 1407
+      "2026-10-27": 82
     }
   },
   {
@@ -91,11 +89,11 @@
     "icon": "https://status.yoodash.com.br/logos/vtex.svg",
     "slug": "plataformas-de-e-commerce",
     "status": "up",
-    "uptime": "86.10%",
-    "uptimeDay": "0.05%",
-    "uptimeWeek": "74.27%",
-    "uptimeMonth": "86.10%",
-    "uptimeYear": "86.10%",
+    "uptime": "98.32%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "98.32%",
+    "uptimeYear": "98.32%",
     "time": 208,
     "timeDay": 468,
     "timeWeek": 279,
@@ -104,9 +102,7 @@
     "dailyMinutesDown": {
       "2026-10-23": 183,
       "2026-10-28": 93,
-      "2026-10-27": 81,
-      "2026-11-05": 1187,
-      "2026-11-04": 1407
+      "2026-10-27": 81
     }
   },
   {
@@ -115,11 +111,11 @@
     "icon": "https://status.yoodash.com.br/logos/mercado-livre.svg",
     "slug": "mercado-livre",
     "status": "up",
-    "uptime": "86.11%",
-    "uptimeDay": "0.04%",
-    "uptimeWeek": "74.28%",
-    "uptimeMonth": "86.11%",
-    "uptimeYear": "86.11%",
+    "uptime": "98.33%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "98.33%",
+    "uptimeYear": "98.33%",
     "time": 208,
     "timeDay": 468,
     "timeWeek": 280,
@@ -128,9 +124,7 @@
     "dailyMinutesDown": {
       "2026-10-23": 182,
       "2026-10-28": 93,
-      "2026-10-27": 79,
-      "2026-11-05": 1187,
-      "2026-11-04": 1406
+      "2026-10-27": 79
     }
   },
   {
@@ -139,11 +133,11 @@
     "icon": "https://status.yoodash.com.br/logos/shopee.png",
     "slug": "shopee",
     "status": "up",
-    "uptime": "86.12%",
-    "uptimeDay": "0.04%",
-    "uptimeWeek": "74.28%",
-    "uptimeMonth": "86.12%",
-    "uptimeYear": "86.12%",
+    "uptime": "98.34%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "98.34%",
+    "uptimeYear": "98.34%",
     "time": 216,
     "timeDay": 467,
     "timeWeek": 293,
@@ -152,9 +146,7 @@
     "dailyMinutesDown": {
       "2026-10-23": 180,
       "2026-10-28": 93,
-      "2026-10-27": 78,
-      "2026-11-05": 1187,
-      "2026-11-04": 1406
+      "2026-10-27": 78
     }
   },
   {
@@ -163,11 +155,11 @@
     "icon": "https://status.yoodash.com.br/logos/anymarket.svg",
     "slug": "anymarket",
     "status": "up",
-    "uptime": "86.14%",
-    "uptimeDay": "0.03%",
-    "uptimeWeek": "74.28%",
-    "uptimeMonth": "86.14%",
-    "uptimeYear": "86.14%",
+    "uptime": "98.36%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "98.36%",
+    "uptimeYear": "98.36%",
     "time": 225,
     "timeDay": 555,
     "timeWeek": 314,
@@ -176,9 +168,7 @@
     "dailyMinutesDown": {
       "2026-10-23": 179,
       "2026-10-28": 93,
-      "2026-10-27": 77,
-      "2026-11-05": 1187,
-      "2026-11-04": 1406
+      "2026-10-27": 77
     }
   },
   {
@@ -187,11 +177,11 @@
     "icon": "https://status.yoodash.com.br/logos/google-ads.svg",
     "slug": "google-ads",
     "status": "up",
-    "uptime": "86.15%",
-    "uptimeDay": "0.03%",
-    "uptimeWeek": "74.28%",
-    "uptimeMonth": "86.15%",
-    "uptimeYear": "86.15%",
+    "uptime": "98.37%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "98.37%",
+    "uptimeYear": "98.37%",
     "time": 210,
     "timeDay": 462,
     "timeWeek": 280,
@@ -200,9 +190,7 @@
     "dailyMinutesDown": {
       "2026-10-23": 178,
       "2026-10-28": 93,
-      "2026-10-27": 76,
-      "2026-11-05": 1187,
-      "2026-11-04": 1406
+      "2026-10-27": 76
     }
   },
   {
@@ -211,11 +199,11 @@
     "icon": "https://status.yoodash.com.br/logos/meta-ads.svg",
     "slug": "meta-ads",
     "status": "up",
-    "uptime": "86.16%",
-    "uptimeDay": "0.03%",
-    "uptimeWeek": "74.28%",
-    "uptimeMonth": "86.16%",
-    "uptimeYear": "86.16%",
+    "uptime": "98.38%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "98.38%",
+    "uptimeYear": "98.38%",
     "time": 208,
     "timeDay": 471,
     "timeWeek": 281,
@@ -224,9 +212,7 @@
     "dailyMinutesDown": {
       "2026-10-23": 177,
       "2026-10-28": 93,
-      "2026-10-27": 74,
-      "2026-11-05": 1187,
-      "2026-11-04": 1405
+      "2026-10-27": 74
     }
   },
   {
@@ -235,11 +221,11 @@
     "icon": "https://status.yoodash.com.br/logos/tiktok-ads.svg",
     "slug": "tik-tok-ads",
     "status": "up",
-    "uptime": "86.17%",
-    "uptimeDay": "0.02%",
-    "uptimeWeek": "74.28%",
-    "uptimeMonth": "86.17%",
-    "uptimeYear": "86.17%",
+    "uptime": "98.39%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "98.39%",
+    "uptimeYear": "98.39%",
     "time": 215,
     "timeDay": 469,
     "timeWeek": 295,
@@ -248,9 +234,7 @@
     "dailyMinutesDown": {
       "2026-10-23": 175,
       "2026-10-28": 93,
-      "2026-10-27": 73,
-      "2026-11-05": 1187,
-      "2026-11-04": 1405
+      "2026-10-27": 73
     }
   },
   {
@@ -259,11 +243,11 @@
     "icon": "https://status.yoodash.com.br/logos/ga4.svg",
     "slug": "google-analytics-4",
     "status": "up",
-    "uptime": "86.18%",
-    "uptimeDay": "0.02%",
-    "uptimeWeek": "74.29%",
-    "uptimeMonth": "86.18%",
-    "uptimeYear": "86.18%",
+    "uptime": "98.40%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "98.40%",
+    "uptimeYear": "98.40%",
     "time": 209,
     "timeDay": 470,
     "timeWeek": 279,
@@ -272,9 +256,7 @@
     "dailyMinutesDown": {
       "2026-10-23": 174,
       "2026-10-28": 93,
-      "2026-10-27": 72,
-      "2026-11-05": 1187,
-      "2026-11-04": 1405
+      "2026-10-27": 72
     }
   },
   {
@@ -283,11 +265,11 @@
     "icon": "https://status.yoodash.com.br/logos/google-search.svg",
     "slug": "google-search-console",
     "status": "up",
-    "uptime": "86.20%",
-    "uptimeDay": "0.01%",
-    "uptimeWeek": "74.29%",
-    "uptimeMonth": "86.20%",
-    "uptimeYear": "86.20%",
+    "uptime": "98.41%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "98.41%",
+    "uptimeYear": "98.41%",
     "time": 223,
     "timeDay": 553,
     "timeWeek": 311,
@@ -296,9 +278,7 @@
     "dailyMinutesDown": {
       "2026-10-23": 173,
       "2026-10-28": 93,
-      "2026-10-27": 70,
-      "2026-11-05": 1187,
-      "2026-11-04": 1405
+      "2026-10-27": 70
     }
   }
 ]
